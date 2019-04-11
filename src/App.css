@@ -1,1 +1,8 @@
-/* styles will come here */
+.App {
+  text-align: center;
+  margin: 10px;
+}
+
+a {
+  margin: 0 10px; 
+}
