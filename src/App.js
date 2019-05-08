@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, BrowserRouter as Router, Route } from 'react-router-dom';
+import { Link, BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 
 const users = [
@@ -68,6 +68,12 @@ const SearchPage = ({ match, location }) => {
   );
 }
 
+const NoMatchPage = () => {
+  return (
+    <h3>404 - Not found</h3>
+  );
+};
+
 const App = () => {
   return (
     <section className="App">
@@ -76,11 +82,15 @@ const App = () => {
         <Link to="/about">About</Link>
         <Link to="/users">Users</Link>
         <Link to="/search?q=react">Search</Link>
-        <Route exact path="/" component={IndexPage} />
-        <Route exact path="/users" component={UsersPage} />
-        <Route exact path="/user/:userId" component={UserPage} />
-        <Route exact path="/about" component={AboutPage} />
-        <Route exact path="/search" component={SearchPage} />
+        <Link to="/404-not-found">404</Link>
+        <Switch>
+          <Route exact path="/" component={IndexPage} />
+          <Route exact path="/users" component={UsersPage} />
+          <Route exact path="/user/:userId" component={UserPage} />
+          <Route exact path="/about" component={AboutPage} />
+          <Route exact path="/search" component={SearchPage} />
+          <Route component={NoMatchPage} />
+        </Switch>
       </Router>
       <a href="/about">about with browser reload</a>
     </section>
