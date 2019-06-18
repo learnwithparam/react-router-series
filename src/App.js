@@ -74,6 +74,12 @@ const NoMatchPage = () => {
   );
 };
 
+const PropsPage = ({title}) => {
+  return (
+    <h3>{title}</h3>
+  );
+};
+
 const App = () => {
   return (
     <section className="App">
@@ -83,12 +89,16 @@ const App = () => {
         <Link to="/users">Users</Link>
         <Link to="/search?q=react">Search</Link>
         <Link to="/404-not-found">404</Link>
+        <Link to="/props-through-component">Props through component</Link>
+        <Link to="/props-through-render">Props through render</Link>
         <Switch>
           <Route exact path="/" component={IndexPage} />
           <Route exact path="/users" component={UsersPage} />
           <Route exact path="/user/:userId" component={UserPage} />
           <Route exact path="/about" component={AboutPage} />
           <Route exact path="/search" component={SearchPage} />
+          <Route exact path="/props-through-component" component={() => <PropsPage title={`Props through component`} />} />
+          <Route exact path="/props-through-render" render={(props) => <PropsPage {...props} title={`Props through render`} />} />
           <Route component={NoMatchPage} />
         </Switch>
       </Router>
