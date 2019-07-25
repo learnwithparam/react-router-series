@@ -84,13 +84,17 @@ const App = () => {
   return (
     <section className="App">
       <Router>
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/users">Users</Link>
-        <Link to="/search?q=react">Search</Link>
-        <Link to="/404-not-found">404</Link>
-        <Link to="/props-through-component">Props through component</Link>
-        <Link to="/props-through-render">Props through render</Link>
+        <div>
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
+          <Link to="/users">Users</Link>
+          <Link to="/search?q=react">Search</Link>
+          <Link to="/404-not-found">404</Link>
+        </div>
+        <div>
+          <Link to="/props-through-component">Props through component</Link>
+          <Link to="/props-through-render">Props through render</Link>
+        </div>
         <Switch>
           <Route exact path="/" component={IndexPage} />
           <Route exact path="/users" component={UsersPage} />
